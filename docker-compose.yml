@@ -1,0 +1,21 @@
+services:
+  backend:
+    build: ./backend
+    environment:
+      - DATABASE_URL=sqlite:////data/daylog.db
+      - SESSION_SECRET=${SESSION_SECRET:-changeme-in-production}
+      - CORS_ORIGINS=http://localhost:3000
+    volumes:
+      - daylog-data:/data
+    expose:
+      - "8000"
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+volumes:
+  daylog-data:

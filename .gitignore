@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+.venv/
+
+# Build output
+dist/
+
+# Database
+*.db
+
+# Python
+__pycache__/
+*.pyc
+
+# Environment
+.env
+
+# OS
+.DS_Store
